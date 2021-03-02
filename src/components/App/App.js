@@ -1,5 +1,7 @@
 import React from "react";
 import className from "classnames";
+
+import Header from "../Header";
 import s from "./App.module.scss";
 
 const App = () => {
@@ -7,10 +9,8 @@ const App = () => {
 
   return (
     <>
-      <header className={s.header}>
-        <h1 className={s.title}>AoW Ranking</h1>
-        <h2 className={s.subtitle}>Ranking Heroes and Troops made easy!</h2>
-      </header>
+      <Header />
+
       <main className={s.tiers}>
         {tiers.map((tier, index) => (
           <div className={s.tier} key={`tier-${index}`}>

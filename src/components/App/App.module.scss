@@ -1,18 +1,3 @@
-.header {
-  color: white;
-  padding: 1rem 0;
-
-  .title,
-  .subtitle {
-    text-align: center;
-    margin: 0;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-}
-
 .tiers {
   .tier {
     display: flex;
@@ -61,6 +46,16 @@
 
       &.f {
         background-color: #82ab59;
+      }
+    }
+
+    .row {
+      display: flex;
+      flex: 1 1;
+      transition: all 500ms;
+
+      &:hover {
+        background-color: #3c414c;
       }
     }
   }
