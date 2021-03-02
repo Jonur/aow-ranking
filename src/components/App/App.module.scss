@@ -1,0 +1,67 @@
+.header {
+  color: white;
+  padding: 1rem 0;
+
+  .title,
+  .subtitle {
+    text-align: center;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+.tiers {
+  .tier {
+    display: flex;
+    height: 100px;
+    border-bottom: 2px solid white;
+
+    &:first-child {
+      border-top: 2px solid white;
+    }
+
+    .label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #282c34;
+      border-right: 2px solid white;
+      width: 75px;
+      font-weight: bold;
+      user-select: none;
+      cursor: default;
+
+      &.s {
+        background-color: #ff7f7f;
+      }
+
+      &.a {
+        background-color: #ffbf7f;
+      }
+
+      &.b {
+        background-color: #ffdf7f;
+      }
+
+      &.c {
+        background-color: #ffff7f;
+      }
+
+      &.d {
+        background-color: #d1e274;
+      }
+
+      &.e {
+        background-color: #bfff7f;
+      }
+
+      &.f {
+        background-color: #82ab59;
+      }
+    }
+  }
+}
