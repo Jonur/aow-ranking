@@ -4,9 +4,10 @@ export const getGameData = ({ gameData }) => gameData;
 
 export const getTroops = createSelector(getGameData, ({ troops }) => troops);
 
-export const getTroopGrades = createSelector(
-  getGameData,
-  ({ grades }) => grades
+export const getGrades = createSelector(getGameData, ({ grades }) => grades);
+
+export const getGradesIdHashMap = createSelector(getGrades, (grades) =>
+  grades.reduce((acc, grade) => ({ ...acc, [grade.id]: grade }), {})
 );
 
 export const getClasses = createSelector(getGameData, ({ classes }) => classes);

@@ -2,6 +2,7 @@ import React from "react";
 import className from "classnames";
 
 import Header from "../Header";
+import Marquee from "../Marquee";
 import s from "./App.module.scss";
 
 const App = () => {
@@ -10,6 +11,8 @@ const App = () => {
   return (
     <>
       <Header />
+
+      <Marquee />
 
       <main className={s.tiers}>
         {tiers.map((tier, index) => (
