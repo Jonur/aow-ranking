@@ -20,7 +20,12 @@ const Marquee = () => {
             })}
             key={`card-${index}`}
           >
-            <img className={s.image} src={hero.image} alt={hero.name} />
+            <img
+              className={s.image}
+              src={hero.image}
+              alt={hero.name}
+              title={hero.name}
+            />
           </div>
         );
       })}
