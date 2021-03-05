@@ -1,12 +1,13 @@
 import React from "react";
-import className from "classnames";
-
+import { useSelector } from "react-redux";
+import { appSelectors } from "../../redux/app";
 import Header from "../Header";
 import Marquee from "../Marquee";
+import Tier from "../Tier";
 import s from "./App.module.scss";
 
 const App = () => {
-  const tiers = ["S", "A", "B", "C", "D", "E", "F"];
+  const tiers = useSelector(appSelectors.getTiers);
 
   return (
     <>
@@ -16,14 +17,7 @@ const App = () => {
 
       <main className={s.tiers}>
         {tiers.map((tier, index) => (
-          <div className={s.tier} key={`tier-${index}`}>
-            <div
-              className={className(s.label, { [s[tier.toLowerCase()]]: tier })}
-            >
-              {tier}
-            </div>
-            <div className={s.row}></div>
-          </div>
+          <Tier tier={tier} key={`tier-${index}`} />
         ))}
       </main>
     </>

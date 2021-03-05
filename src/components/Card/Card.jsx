@@ -1,17 +1,27 @@
-import React, { useRef } from "react";
+import React from "react";
 import classNames from "classnames";
-
+import { useDrag } from "react-dnd";
+import { ITEM_TYPES } from "../../utils/constants";
 import s from "./Card.module.scss";
 
 const Card = ({ entity, grade }) => {
-  const cardRef = useRef();
+  const [{ isDragging }, dragRef] = useDrag({
+    item: {
+      type: ITEM_TYPES.CARD,
+      id: entity.id,
+    },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  });
 
   return (
     <div
+      ref={dragRef}
       className={classNames(s.card, {
         [s[grade]]: entity.grade,
       })}
-      ref={cardRef}
+      style={{ opacity: isDragging ? "0.5" : "1" }}
     >
       <img
         className={s.image}
