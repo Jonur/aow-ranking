@@ -41,6 +41,7 @@ const ToggleCardsModal = () => {
       </h2>
       <p>Toggling between ranking Heroes and Troops will empty the tiers.</p>
       <p>Consider sharing the URL of your current selection first.</p>
+
       <div className={s.controls}>
         <button
           className={classNames(s.btn, s.cancel)}
