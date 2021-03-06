@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import className from "classnames";
+import classNames from "classnames";
 
 import { appActions, appSelectors } from "../../redux/app";
 import { CARD_TYPES } from "../../utils/constants";
@@ -16,11 +16,11 @@ const Controls = () => {
     <div className={s.controls}>
       <button
         aria-label={`Viewing ${selectedCardType} cards`}
-        className={className(s.btn, s.toggleCardType)}
+        className={classNames(s.btn, s.toggleCardType)}
         onClick={() => dispatch(appActions.openToggleCardsModal())}
       >
         <i
-          className={className("fas", {
+          className={classNames("fas", {
             "fa-users": selectedCardType === CARD_TYPES.TROOP,
             "fa-user": selectedCardType === CARD_TYPES.HERO,
           })}
@@ -29,7 +29,7 @@ const Controls = () => {
 
       <button
         aria-label="Share selection with URL"
-        className={className(s.btn, s.shareBtn)}
+        className={classNames(s.btn, s.shareBtn)}
         disabled={!usedCards.length}
         onClick={() => dispatch(appActions.createShareableLink())}
       >

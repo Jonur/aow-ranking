@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { string } from "prop-types";
-import className from "classnames";
+import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { useDrop } from "react-dnd";
 
@@ -63,7 +63,7 @@ const Tier = ({ tier }) => {
   return (
     <div className={s.tier}>
       <div
-        className={className(s.label, {
+        className={classNames(s.label, {
           [s[tier.toLowerCase()]]: tier,
         })}
       >
@@ -71,7 +71,7 @@ const Tier = ({ tier }) => {
       </div>
 
       <div
-        className={className(s.cardHolder, {
+        className={classNames(s.cardHolder, {
           [s.isOver]: isOver,
         })}
         ref={dropRef}
