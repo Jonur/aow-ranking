@@ -1,6 +1,34 @@
 import { appActions, appSelectors } from "./";
+import { gameDataSelectors } from "../gameData";
+import getCardTypeFromURL from "../../utils/getCardTypeFromURL";
+import getTieredCardsFromURL from "../../utils/getTieredCardsFromURL";
+import { CARD_TYPES } from "../../utils/constants";
 
 const appMiddleware = (store) => (next) => (action) => {
+  if (action.type === appActions.APP_INIT) {
+    const state = store.getState();
+
+    const cardTypeFromURL = getCardTypeFromURL();
+    if (cardTypeFromURL) {
+      store.dispatch(appActions.toggleCardType({ type: cardTypeFromURL }));
+    }
+
+    const selectedCardType = appSelectors.getSelectedCardType(state);
+    const troops = gameDataSelectors.getTroopIdHashMap(state);
+    const heroes = gameDataSelectors.getHeroesIdHashMap(state);
+
+    const validateAgainstType = cardTypeFromURL || selectedCardType;
+    const entitySourceForValidation =
+      validateAgainstType === CARD_TYPES.HERO ? heroes : troops;
+
+    const tieredCardsFromURL = getTieredCardsFromURL({
+      entitySourceForValidation,
+    });
+    store.dispatch(
+      appActions.setTieredCards({ tieredCards: tieredCardsFromURL })
+    );
+  }
+
   if (action.type === appActions.CREATE_SHAREABLE_LINK) {
     const state = store.getState();
 

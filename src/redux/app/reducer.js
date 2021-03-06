@@ -4,6 +4,11 @@ import { appActions } from "./";
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
+    case appActions.SET_TIERED_CARDS: {
+      return update(state, {
+        tieredCards: { $set: action.payload.tieredCards },
+      });
+    }
     case appActions.ADD_CARD_TO_TIER: {
       return update(state, {
         tieredCards: {
