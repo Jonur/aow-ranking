@@ -20,36 +20,37 @@
     cursor: default;
 
     &.s {
-      background-color: #ff7f7f;
+      background-color: #e46668;
     }
 
     &.a {
-      background-color: #ffbf7f;
+      background-color: #eb9f40;
     }
 
     &.b {
-      background-color: #ffdf7f;
+      background-color: #eace70;
     }
 
     &.c {
-      background-color: #ffff7f;
+      background-color: #d3e79b;
     }
 
     &.d {
-      background-color: #d1e274;
+      background-color: #c1e5ce;
     }
 
     &.e {
-      background-color: #bfff7f;
+      background-color: #cddfed;
     }
 
     &.f {
-      background-color: #dfffbf;
+      background-color: #e5e4f6;
     }
   }
 
   .cardHolder {
     display: flex;
+    align-items: center;
     flex: 1 1;
     transition: all 500ms;
     padding: 0 0.25rem;

@@ -11,6 +11,13 @@ const appReducer = (state = initialState, action) => {
         },
       });
     }
+    case appActions.REMOVE_CARD_FROM_TIER: {
+      return update(state, {
+        tieredCards: {
+          [action.payload.tier]: { $remove: [action.payload.cardId] },
+        },
+      });
+    }
     default: {
       return state;
     }

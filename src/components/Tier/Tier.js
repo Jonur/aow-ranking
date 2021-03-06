@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import className from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { useDrop } from "react-dnd";
@@ -12,20 +12,46 @@ import s from "./Tier.module.scss";
 const Tier = ({ tier }) => {
   const dispatch = useDispatch();
 
+  const tiers = useSelector(appSelectors.getTiers);
   const tieredCards = useSelector(appSelectors.getTieredCards);
   const heroes = useSelector(gameDataSelectors.getHeroesIdHashMap);
   const grades = useSelector(gameDataSelectors.getGradesIdHashMap);
 
+  const getCardsInTier = useCallback(() => [...tieredCards[tier]], [
+    tieredCards,
+    tier,
+  ]);
+
+  const cardsInTier = getCardsInTier();
+
+  const dropItem = useCallback(
+    (item) => {
+      const isCardAlreadyInSameTier = cardsInTier.includes(item.id);
+      if (!isCardAlreadyInSameTier) {
+        const tierCardWasPreviouslyIn = tiers.find((tierEntry) =>
+          [...tieredCards[tierEntry]].includes(item.id)
+        );
+        if (tierCardWasPreviouslyIn) {
+          dispatch(
+            appActions.removeCardFromTier({
+              cardId: item.id,
+              tier: tierCardWasPreviouslyIn,
+            })
+          );
+        }
+        dispatch(appActions.addCardToTier({ cardId: item.id, tier }));
+      }
+    },
+    [cardsInTier, dispatch, tier, tieredCards, tiers]
+  );
+
   const [{ isOver }, dropRef] = useDrop({
     accept: ITEM_TYPES.CARD,
-    drop: (item) =>
-      dispatch(appActions.addCardToTier({ cardId: item.id, tier })),
+    drop: dropItem,
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
   });
-
-  const cardsInTier = [...tieredCards[tier]];
 
   return (
     <div className={s.tier}>
