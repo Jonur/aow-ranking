@@ -47,6 +47,15 @@ const Tier = ({ tier }) => {
     [cardsInTier, dispatch, tier, tieredCards, tiers]
   );
 
+  const isOverflown = ({
+    clientWidth,
+    clientHeight,
+    scrollWidth,
+    scrollHeight,
+  }) => {
+    return scrollHeight > clientHeight || scrollWidth > clientWidth;
+  };
+
   const [{ isOver }, dropRef] = useDrop({
     accept: ITEM_TYPES.CARD,
     drop: dropItem,

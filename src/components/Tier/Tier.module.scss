@@ -1,3 +1,5 @@
+@import "../../scss/SharedStyles.scss";
+
 .tier {
   display: flex;
   height: 100px;
@@ -14,7 +16,9 @@
     font-size: 2.5rem;
     color: #282c34;
     border-right: 2px solid white;
-    width: 75px;
+    flex: 1 1 75px;
+    max-width: 75px;
+    min-width: 75px;
     font-weight: bold;
     user-select: none;
     cursor: default;
@@ -50,14 +54,17 @@
 
   .cardHolder {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex: 1 1;
     transition: all 500ms;
     padding: 0 0.25rem;
+    overflow: auto hidden;
 
     &:hover,
     &.isOver {
       background-color: #3c414c;
     }
+
+    @include scrollbar-style;
   }
 }

@@ -1,0 +1,21 @@
+@mixin scrollbar-style {
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border: 1px solid slategrey;
+    z-index: 2;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-track-piece,
+  &::-webkit-scrollbar-corner,
+  &::-webkit-resizer {
+    cursor: pointer;
+  }
+}
