@@ -1,6 +1,7 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import className from "classnames";
+
 import { appActions, appSelectors } from "../../redux/app";
 import { CARD_TYPES } from "../../utils/constants";
 import s from "./Controls.module.scss";
@@ -11,20 +12,12 @@ const Controls = () => {
   const selectedCardType = useSelector(appSelectors.getSelectedCardType);
   const usedCards = useSelector(appSelectors.getUsedCards);
 
-  const handleToggleCardType = useCallback(() => {
-    const type =
-      selectedCardType === CARD_TYPES.TROOP
-        ? CARD_TYPES.HERO
-        : CARD_TYPES.TROOP;
-    dispatch(appActions.toggleCardType({ type }));
-  }, [dispatch, selectedCardType]);
-
   return (
     <div className={s.controls}>
       <button
         aria-label={`Viewing ${selectedCardType} cards`}
         className={className(s.btn, s.toggleCardType)}
-        onClick={handleToggleCardType}
+        onClick={() => dispatch(appActions.openToggleCardsModal())}
       >
         <i
           className={className("fas", {

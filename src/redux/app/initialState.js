@@ -8,6 +8,9 @@ const initialState = {
     cardType: CARD_TYPES.HERO,
     notificationMessage: "",
   },
+  modals: {
+    toggleCardsModal: false,
+  },
 };
 
 export default initialState;

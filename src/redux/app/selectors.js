@@ -59,3 +59,8 @@ export const getNotificationMessage = createSelector(
   getUserInteractions,
   ({ notificationMessage }) => notificationMessage
 );
+
+export const getToggleCardsModalStatus = createSelector(
+  getApp,
+  ({ modals }) => modals.toggleCardsModal
+);

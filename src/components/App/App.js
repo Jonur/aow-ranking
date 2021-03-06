@@ -7,6 +7,7 @@ import Marquee from "../Marquee";
 import Controls from "../Controls";
 import Tier from "../Tier";
 import Footer from "../Footer";
+import ToggleCardsModal from "../ToggleCardsModal";
 import s from "./App.module.scss";
 
 const App = () => {
@@ -14,6 +15,9 @@ const App = () => {
 
   const tiers = useSelector(appSelectors.getTiers);
   const notificationMessage = useSelector(appSelectors.getNotificationMessage);
+  const toggleCardsModalStatus = useSelector(
+    appSelectors.getToggleCardsModalStatus
+  );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => dispatch(appActions.appInitialisation()), []);
@@ -36,6 +40,8 @@ const App = () => {
           <Tier tier={tier} key={`tier-${index}`} />
         ))}
       </main>
+
+      {toggleCardsModalStatus && <ToggleCardsModal />}
 
       <Footer />
     </>

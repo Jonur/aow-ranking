@@ -38,6 +38,20 @@ const appReducer = (state = initialState, action) => {
         },
       });
     }
+    case appActions.CLOSE_TOGGLE_CARDS_MODAL: {
+      return update(state, {
+        modals: {
+          toggleCardsModal: { $set: false },
+        },
+      });
+    }
+    case appActions.OPEN_TOGGLE_CARDS_MODAL: {
+      return update(state, {
+        modals: {
+          toggleCardsModal: { $set: true },
+        },
+      });
+    }
     default: {
       return state;
     }

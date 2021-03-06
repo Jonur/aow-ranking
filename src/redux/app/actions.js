@@ -5,6 +5,8 @@ export const TOGGLE_CARD_TYPE = "TOGGLE_CARD_TYPE";
 export const CREATE_SHAREABLE_LINK = "CREATE_SHAREABLE_LINK";
 export const SET_NOTIFICATION_MESSAGE = "SET_NOTIFICATION_MESSAGE";
 export const SET_TIERED_CARDS = "SET_TIERED_CARDS";
+export const CLOSE_TOGGLE_CARDS_MODAL = "CLOSE_TOGGLE_CARDS_MODAL";
+export const OPEN_TOGGLE_CARDS_MODAL = "OPEN_TOGGLE_CARDS_MODAL";
 
 export const appInitialisation = () => ({
   type: APP_INIT,
@@ -37,4 +39,12 @@ export const setNotificationMessage = ({ message }) => ({
 export const setTieredCards = ({ tieredCards }) => ({
   type: SET_TIERED_CARDS,
   payload: { tieredCards },
+});
+
+export const closeToggleCardsModal = () => ({
+  type: CLOSE_TOGGLE_CARDS_MODAL,
+});
+
+export const openToggleCardsModal = () => ({
+  type: OPEN_TOGGLE_CARDS_MODAL,
 });
