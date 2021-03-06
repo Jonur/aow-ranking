@@ -3,6 +3,7 @@
 .marquee {
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: auto;
 
   @include scrollbar-style;

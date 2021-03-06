@@ -7,7 +7,11 @@
   display: flex;
   width: 100%;
   margin-bottom: 1rem;
-  height: 108px;
+  height: 128px;
+
+  @media screen and (min-width: 768px) {
+    height: 108px;
+  }
 }
 
 .notificaitonMessage {

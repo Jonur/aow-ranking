@@ -2,8 +2,12 @@
 
 .tier {
   display: flex;
-  height: 100px;
   border-bottom: 2px solid white;
+  height: 126px;
+
+  @media screen and (min-width: 768px) {
+    height: 100px;
+  }
 
   &:first-child {
     border-top: 2px solid white;
