@@ -24,4 +24,8 @@
   &.legendary {
     border: 2px solid #c59d2c;
   }
+
+  &.isDragging {
+    opacity: 0.5;
+  }
 }

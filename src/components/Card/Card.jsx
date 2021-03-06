@@ -20,8 +20,8 @@ const Card = ({ entity, grade }) => {
       ref={dragRef}
       className={classNames(s.card, {
         [s[grade]]: entity.grade,
+        [s.isDragging]: isDragging,
       })}
-      style={{ opacity: isDragging ? "0.5" : "1" }}
     >
       <img
         className={s.image}

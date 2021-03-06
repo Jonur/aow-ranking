@@ -4,12 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useDrop } from "react-dnd";
 
 import { appActions, appSelectors } from "../../redux/app";
+import { gameDataSelectors } from "../../redux/gameData";
+import Card from "../Card";
 import { ITEM_TYPES } from "../../utils/constants";
 import s from "./Tier.module.scss";
 
 const Tier = ({ tier }) => {
   const dispatch = useDispatch();
+
   const tieredCards = useSelector(appSelectors.getTieredCards);
+  const heroes = useSelector(gameDataSelectors.getHeroesIdHashMap);
+  const grades = useSelector(gameDataSelectors.getGradesIdHashMap);
 
   const [{ isOver }, dropRef] = useDrop({
     accept: ITEM_TYPES.CARD,
@@ -20,7 +25,7 @@ const Tier = ({ tier }) => {
     }),
   });
 
-  console.log(`Tier ${tier}:`, tieredCards[tier]);
+  const cardsInTier = [...tieredCards[tier]];
 
   return (
     <div className={s.tier}>
@@ -37,7 +42,15 @@ const Tier = ({ tier }) => {
           [s.isOver]: isOver,
         })}
         ref={dropRef}
-      ></div>
+      >
+        {cardsInTier.map((cardId, index) => {
+          const cardEntity = heroes[cardId];
+          const grade = grades[cardEntity.grade].title.toLowerCase();
+          return (
+            <Card key={`card-${index}`} entity={cardEntity} grade={grade} />
+          );
+        })}
+      </div>
     </div>
   );
 };
