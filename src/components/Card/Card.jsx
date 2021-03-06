@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { number, shape, string } from "prop-types";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
@@ -21,6 +21,17 @@ const Card = ({ entity, grade, order, tier }) => {
     }),
   });
 
+  const handleRemoveCardFromTier = useCallback(
+    () =>
+      dispatch(
+        appActions.removeCardFromTier({
+          cardId: entity.id,
+          tier,
+        })
+      ),
+    [dispatch, entity.id, tier]
+  );
+
   return (
     <div
       ref={dragRef}
@@ -40,14 +51,7 @@ const Card = ({ entity, grade, order, tier }) => {
         <button
           title="Remove"
           className={s.remove}
-          onClick={() =>
-            dispatch(
-              appActions.removeCardFromTier({
-                cardId: entity.id,
-                tier,
-              })
-            )
-          }
+          onClick={handleRemoveCardFromTier}
           type="button"
         >
           &times;
