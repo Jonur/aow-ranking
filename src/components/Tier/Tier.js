@@ -78,8 +78,15 @@ const Tier = ({ tier }) => {
         {cardsInTier.map((cardId, index) => {
           const cardEntity = cardEntities[cardId];
           const grade = grades[cardEntity.grade].title.toLowerCase();
+          const order = grades[cardEntity.grade].order;
+
           return (
-            <Card key={`card-${index}`} entity={cardEntity} grade={grade} />
+            <Card
+              key={`card-${index}`}
+              entity={cardEntity}
+              grade={grade}
+              order={order}
+            />
           );
         })}
       </div>
