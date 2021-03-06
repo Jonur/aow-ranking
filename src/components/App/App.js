@@ -6,6 +6,7 @@ import Header from "../Header";
 import Marquee from "../Marquee";
 import Controls from "../Controls";
 import Tier from "../Tier";
+import Footer from "../Footer";
 import s from "./App.module.scss";
 
 const App = () => {
@@ -35,6 +36,8 @@ const App = () => {
           <Tier tier={tier} key={`tier-${index}`} />
         ))}
       </main>
+
+      <Footer />
     </>
   );
 };
