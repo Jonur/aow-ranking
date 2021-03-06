@@ -9,6 +9,7 @@ const Controls = () => {
   const dispatch = useDispatch();
 
   const selectedCardType = useSelector(appSelectors.getSelectedCardType);
+  const usedCards = useSelector(appSelectors.getUsedCards);
 
   const handleToggleCardType = useCallback(() => {
     const type =
@@ -31,6 +32,15 @@ const Controls = () => {
             "fa-user": selectedCardType === CARD_TYPES.HERO,
           })}
         ></i>
+      </button>
+
+      <button
+        aria-label="Share selection with URL"
+        className={className(s.btn, s.shareBtn)}
+        disabled={!usedCards.length}
+        onClick={() => dispatch(appActions.createShareableLink())}
+      >
+        <i className="fas fa-share-square"></i>
       </button>
     </div>
   );

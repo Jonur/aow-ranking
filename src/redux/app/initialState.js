@@ -6,6 +6,7 @@ const initialState = {
   tieredCards: getInitialTieredCards(TIERS),
   userInteractions: {
     cardType: CARD_TYPES.HERO,
+    notificationMessage: "",
   },
 };
 

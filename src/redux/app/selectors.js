@@ -21,24 +21,41 @@ export const getSelectedCardType = createSelector(
   ({ cardType }) => cardType
 );
 
-export const getAvailableCards = createSelector(
+export const getCardEntities = createSelector(
   getSelectedCardType,
   gameDataSelectors.getHeroesIdHashMap,
   gameDataSelectors.getTroopIdHashMap,
+  (cardType, heroes, troops) =>
+    cardType === CARD_TYPES.HERO ? Object.values(heroes) : Object.values(troops)
+);
+
+export const getUsedCards = createSelector(
   getTiers,
   getTieredCards,
-  (cardType, heroes, troops, tiers, tieredCards) => {
-    const cardEntities =
-      cardType === CARD_TYPES.HERO
-        ? Object.values(heroes)
-        : Object.values(troops);
-    const usedCards = tiers.reduce(
-      (acc, tier) => [...acc, ...tieredCards[tier]],
-      []
-    );
-    const availableCards = cardEntities.filter(
-      (cardEntity) => !usedCards.includes(cardEntity.id)
-    );
-    return availableCards;
-  }
+  (tiers, tieredCards) =>
+    tiers.reduce((acc, tier) => [...acc, ...tieredCards[tier]], [])
+);
+
+export const getAvailableCards = createSelector(
+  getCardEntities,
+  getUsedCards,
+  (cardEntities, usedCards) =>
+    cardEntities.filter((cardEntity) => !usedCards.includes(cardEntity.id))
+);
+
+export const getCardsLinkParams = createSelector(
+  getTiers,
+  getTieredCards,
+  (tiers, tieredCards) =>
+    tiers.reduce((acc, tier) => {
+      const cardInTier = [...tieredCards[tier]];
+      return cardInTier.length
+        ? `${acc}&${tier}=${cardInTier.toString()}`
+        : acc;
+    }, "")
+);
+
+export const getNotificationMessage = createSelector(
+  getUserInteractions,
+  ({ notificationMessage }) => notificationMessage
 );

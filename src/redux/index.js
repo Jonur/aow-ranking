@@ -3,15 +3,14 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import { appReducer } from "./app";
 import { gameDataReducer } from "./gameData";
-// import { appMiddleware } from "./app";
+import { appMiddleware } from "./app";
 
 const rootReducer = combineReducers({
   app: appReducer,
   gameData: gameDataReducer,
 });
 
-// const middlewares = [appMiddleware];
-const middlewares = [];
+const middlewares = [appMiddleware];
 const buildMiddleware = () => {
   if (
     window.location.hostname === "localhost" ||

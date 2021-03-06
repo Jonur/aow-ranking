@@ -9,9 +9,14 @@ import s from "./App.module.scss";
 
 const App = () => {
   const tiers = useSelector(appSelectors.getTiers);
+  const notificationMessage = useSelector(appSelectors.getNotificationMessage);
 
   return (
     <>
+      {notificationMessage && (
+        <span className={s.notificaitonMessage}>{notificationMessage}</span>
+      )}
+
       <Header />
 
       <section className={s.toolbar}>

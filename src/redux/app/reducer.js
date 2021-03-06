@@ -26,6 +26,13 @@ const appReducer = (state = initialState, action) => {
         },
       });
     }
+    case appActions.SET_NOTIFICATION_MESSAGE: {
+      return update(state, {
+        userInteractions: {
+          notificationMessage: { $set: action.payload.message },
+        },
+      });
+    }
     default: {
       return state;
     }

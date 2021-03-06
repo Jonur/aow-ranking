@@ -1,5 +1,7 @@
 .controls {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 0 1rem 0 0.5rem;
 
   .btn {
@@ -12,6 +14,10 @@
     height: 3rem;
     width: 3rem;
     transition: all 500ms;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
 
     &:disabled {
       opacity: 0.5;

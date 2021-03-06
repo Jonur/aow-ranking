@@ -1,6 +1,8 @@
 export const ADD_CARD_TO_TIER = "ADD_CARD_TO_TIER";
 export const REMOVE_CARD_FROM_TIER = "REMOVE_CARD_FROM_TIER";
 export const TOGGLE_CARD_TYPE = "TOGGLE_CARD_TYPE";
+export const CREATE_SHAREABLE_LINK = "CREATE_SHAREABLE_LINK";
+export const SET_NOTIFICATION_MESSAGE = "SET_NOTIFICATION_MESSAGE";
 
 export const addCardToTier = ({ cardId, tier }) => ({
   type: ADD_CARD_TO_TIER,
@@ -15,4 +17,13 @@ export const removeCardFromTier = ({ cardId, tier }) => ({
 export const toggleCardType = ({ type }) => ({
   type: TOGGLE_CARD_TYPE,
   payload: { type },
+});
+
+export const createShareableLink = () => ({
+  type: CREATE_SHAREABLE_LINK,
+});
+
+export const setNotificationMessage = ({ message }) => ({
+  type: SET_NOTIFICATION_MESSAGE,
+  payload: { message },
 });
