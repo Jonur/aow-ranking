@@ -4,7 +4,7 @@ import { useDrag } from "react-dnd";
 import { ITEM_TYPES } from "../../utils/constants";
 import s from "./Card.module.scss";
 
-const Card = ({ entity, grade }) => {
+const Card = ({ entity, grade, order }) => {
   const [{ isDragging }, dragRef] = useDrag({
     item: {
       type: ITEM_TYPES.CARD,
@@ -22,6 +22,7 @@ const Card = ({ entity, grade }) => {
         [s[grade]]: entity.grade,
         [s.isDragging]: isDragging,
       })}
+      style={{ order }}
     >
       <img
         className={s.image}

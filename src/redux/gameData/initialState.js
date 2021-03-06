@@ -1,9 +1,9 @@
 const initialState = {
   grades: [
-    { id: "XyDE", title: "Common" },
-    { id: "3XE9", title: "Rare" },
-    { id: "fod3", title: "Epic" },
-    { id: "BB4h", title: "Legendary" },
+    { id: "XyDE", title: "Common", order: 4 },
+    { id: "3XE9", title: "Rare", order: 3 },
+    { id: "fod3", title: "Epic", order: 2 },
+    { id: "BB4h", title: "Legendary", order: 1 },
   ],
   races: [
     { id: "HVSp", title: "Human" },

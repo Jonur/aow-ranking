@@ -13,7 +13,16 @@ const Marquee = () => {
     <section className={s.marquee}>
       {availableCards.map((cardEntity, index) => {
         const grade = grades[cardEntity.grade].title.toLowerCase();
-        return <Card key={`card-${index}`} entity={cardEntity} grade={grade} />;
+        const order = grades[cardEntity.grade].order;
+
+        return (
+          <Card
+            key={`card-${index}`}
+            entity={cardEntity}
+            grade={grade}
+            order={order}
+          />
+        );
       })}
     </section>
   );
