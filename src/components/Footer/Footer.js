@@ -48,7 +48,7 @@ const Footer = () => (
         className={s.link}
         rel="noopener noreferrer"
         target="_blank"
-        href="https://github.com/Jonur/aow-formation-share/blob/main/PrivacyPolicy.md"
+        href="https://github.com/Jonur/aow-ranking/blob/main/PrivacyPolicy.md"
         alt="Application Privacy Policy"
       >
         Privacy
@@ -58,7 +58,7 @@ const Footer = () => (
         className={s.link}
         rel="noopener noreferrer"
         target="_blank"
-        href="https://github.com/Jonur/aow-formation-share#credits"
+        href="https://github.com/Jonur/aow-ranking#credits"
         alt="Credits"
       >
         Credits
