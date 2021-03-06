@@ -31,6 +31,7 @@ const Tier = ({ tier }) => {
         const tierCardWasPreviouslyIn = tiers.find((tierEntry) =>
           [...tieredCards[tierEntry]].includes(item.id)
         );
+
         if (tierCardWasPreviouslyIn) {
           dispatch(
             appActions.removeCardFromTier({
@@ -39,6 +40,7 @@ const Tier = ({ tier }) => {
             })
           );
         }
+
         dispatch(appActions.addCardToTier({ cardId: item.id, tier }));
       }
     },
