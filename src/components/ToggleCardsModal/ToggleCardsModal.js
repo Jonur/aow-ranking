@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import classNames from "classnames";
 import Modal from "react-modal";
+import classNames from "classnames";
 
 import { appActions, appSelectors } from "../../redux/app";
 import { CARD_TYPES } from "../../utils/constants";

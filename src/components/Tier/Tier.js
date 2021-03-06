@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { string } from "prop-types";
-import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { useDrop } from "react-dnd";
+import classNames from "classnames";
 
 import { appActions, appSelectors } from "../../redux/app";
 import { gameDataSelectors } from "../../redux/gameData";

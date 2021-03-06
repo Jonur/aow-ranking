@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { number, shape, string } from "prop-types";
-import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import { useDrag } from "react-dnd";
+import classNames from "classnames";
 
 import { appActions } from "../../redux/app";
 import { ITEM_TYPES } from "../../utils/constants";
