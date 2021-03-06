@@ -18,6 +18,14 @@ const appReducer = (state = initialState, action) => {
         },
       });
     }
+    case appActions.TOGGLE_CARD_TYPE: {
+      return update(state, {
+        tieredCards: { $set: initialState.tieredCards },
+        userInteractions: {
+          cardType: { $set: action.payload.type },
+        },
+      });
+    }
     default: {
       return state;
     }

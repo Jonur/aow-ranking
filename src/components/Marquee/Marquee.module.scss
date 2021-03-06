@@ -2,11 +2,7 @@
 
 .marquee {
   display: flex;
-  width: 100%;
   overflow-x: auto;
-  padding: 0.5rem 0;
-  margin-bottom: 1rem;
-  height: 120px;
 
   @include scrollbar-style;
 }

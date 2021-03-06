@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { appSelectors } from "../../redux/app";
 import Header from "../Header";
 import Marquee from "../Marquee";
+import Controls from "../Controls";
 import Tier from "../Tier";
 import s from "./App.module.scss";
 
@@ -13,7 +14,10 @@ const App = () => {
     <>
       <Header />
 
-      <Marquee />
+      <section className={s.toolbar}>
+        <Controls />
+        <Marquee />
+      </section>
 
       <main className={s.tiers}>
         {tiers.map((tier, index) => (

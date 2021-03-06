@@ -1,0 +1,34 @@
+.controls {
+  display: flex;
+  padding: 0 1rem 0 0.5rem;
+
+  .btn {
+    border: 2px solid white;
+    color: white;
+    outline: 0;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    transition: all 500ms;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    &.shareBtn {
+      background-color: #338d46;
+    }
+
+    &.toggleCardType {
+      background-color: #222f8c;
+    }
+
+    &.emptyFormation {
+      background-color: #c9d3de;
+      color: #4a4a4a;
+    }
+  }
+}

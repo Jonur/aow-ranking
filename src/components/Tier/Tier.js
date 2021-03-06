@@ -6,16 +6,20 @@ import { useDrop } from "react-dnd";
 import { appActions, appSelectors } from "../../redux/app";
 import { gameDataSelectors } from "../../redux/gameData";
 import Card from "../Card";
-import { ITEM_TYPES } from "../../utils/constants";
+import { CARD_TYPES, ITEM_TYPES } from "../../utils/constants";
 import s from "./Tier.module.scss";
 
 const Tier = ({ tier }) => {
   const dispatch = useDispatch();
 
+  const selectedCardType = useSelector(appSelectors.getSelectedCardType);
   const tiers = useSelector(appSelectors.getTiers);
   const tieredCards = useSelector(appSelectors.getTieredCards);
+  const troops = useSelector(gameDataSelectors.getTroopIdHashMap);
   const heroes = useSelector(gameDataSelectors.getHeroesIdHashMap);
   const grades = useSelector(gameDataSelectors.getGradesIdHashMap);
+
+  const cardEntities = selectedCardType === CARD_TYPES.HERO ? heroes : troops;
 
   const getCardsInTier = useCallback(() => [...tieredCards[tier]], [
     tieredCards,
@@ -47,15 +51,6 @@ const Tier = ({ tier }) => {
     [cardsInTier, dispatch, tier, tieredCards, tiers]
   );
 
-  const isOverflown = ({
-    clientWidth,
-    clientHeight,
-    scrollWidth,
-    scrollHeight,
-  }) => {
-    return scrollHeight > clientHeight || scrollWidth > clientWidth;
-  };
-
   const [{ isOver }, dropRef] = useDrop({
     accept: ITEM_TYPES.CARD,
     drop: dropItem,
@@ -81,7 +76,7 @@ const Tier = ({ tier }) => {
         ref={dropRef}
       >
         {cardsInTier.map((cardId, index) => {
-          const cardEntity = heroes[cardId];
+          const cardEntity = cardEntities[cardId];
           const grade = grades[cardEntity.grade].title.toLowerCase();
           return (
             <Card key={`card-${index}`} entity={cardEntity} grade={grade} />
