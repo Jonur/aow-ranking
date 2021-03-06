@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import { string } from "prop-types";
 import className from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { useDrop } from "react-dnd";
@@ -86,12 +87,17 @@ const Tier = ({ tier }) => {
               entity={cardEntity}
               grade={grade}
               order={order}
+              tier={tier}
             />
           );
         })}
       </div>
     </div>
   );
+};
+
+Tier.propTypes = {
+  tier: string,
 };
 
 export default Tier;

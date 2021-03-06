@@ -3,6 +3,9 @@
   border-radius: 4px;
   margin-right: 0.25rem;
   cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
 
   .image {
     height: 100%;
@@ -27,5 +30,34 @@
 
   &.isDragging {
     opacity: 0.5;
+  }
+
+  .remove {
+    border-radius: 25px;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0;
+    outline: 0;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #ff4122;
+    cursor: pointer;
+    position: absolute;
+    top: -2rem;
+    z-index: 1;
+    visibility: hidden;
+    transition: all 500ms;
+  }
+
+  &:hover {
+    .remove {
+      top: 0.25rem;
+      visibility: initial;
+    }
   }
 }
