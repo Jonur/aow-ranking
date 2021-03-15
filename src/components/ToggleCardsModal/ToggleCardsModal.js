@@ -36,7 +36,7 @@ const ToggleCardsModal = () => {
       appElement={document.getElementById("root")}
     >
       <h2 className={s.title}>
-        <i class={classNames("fas", " fa-info-circle", s.titleIcon)}></i>
+        <i className={classNames("fas", " fa-info-circle", s.titleIcon)}></i>
         Toggle ranking cards
       </h2>
       <p>Toggling between ranking Heroes and Troops will empty the tiers.</p>
