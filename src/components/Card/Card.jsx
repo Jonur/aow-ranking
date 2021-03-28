@@ -12,8 +12,8 @@ const Card = ({ entity, grade, order, tier }) => {
   const dispatch = useDispatch();
 
   const [{ isDragging }, dragRef] = useDrag({
+    type: ITEM_TYPES.CARD,
     item: {
-      type: ITEM_TYPES.CARD,
       id: entity.id,
     },
     collect: (monitor) => ({
