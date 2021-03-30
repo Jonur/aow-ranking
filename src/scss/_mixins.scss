@@ -22,4 +22,7 @@
   &::-webkit-resizer {
     cursor: pointer;
   }
+
+  scrollbar-color: slategrey darkgrey;
+  scrollbar-width: thin;
 }
