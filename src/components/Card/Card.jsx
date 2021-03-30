@@ -33,7 +33,7 @@ const Card = ({ entity, grade, order, tier }) => {
   );
 
   return (
-    <div
+    <button
       ref={dragRef}
       className={classNames(s.card, {
         [s[grade]]: entity.grade,
@@ -48,16 +48,15 @@ const Card = ({ entity, grade, order, tier }) => {
         title={entity.name}
       />
       {tier && (
-        <button
+        <div
           title="Remove"
           className={s.remove}
           onClick={handleRemoveCardFromTier}
-          type="button"
         >
           &times;
-        </button>
+        </div>
       )}
-    </div>
+    </button>
   );
 };
 
